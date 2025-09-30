@@ -179,8 +179,9 @@ mv temp mm10_exon_bins_100bp_gene.bed
 
 Sort by gene then merge
 
-bedtools sort -i mm10_exons_with_gene.bed   | bedtools groupby -g 4 -c 1,2,3 -o collapse > gene_exons_grouped.txt
-
+<pre>
+bedtools sort -i mm10_exons_with_gene.bed | bedtools groupby -g 4 -c 1,2,3 -o collapse > gene_exons_grouped.txt
+</pre>
 
 Rscript $(Rscript -e "cat(system.file('extdata', 'IntervalFile.R', package='PureCN'))")  --infile mm10_exon_bins_100bp_gene.bed   --fasta mm10.fa   --outfile mm10_exon_bins_100bp_gene.txt
 
