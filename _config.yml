@@ -8,3 +8,8 @@ header_pages:
   - about.md
   - blog.md
 
+# Plugins (optional but recommended)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+

@@ -4,5 +4,5 @@ title: About
 permalink: /about/
 ---
 
-This is the About page of your blog. You can write a short bio here.
+This is the About page of your blog. You can write a short bio or anything about yourself here.
 
