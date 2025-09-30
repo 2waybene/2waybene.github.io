@@ -71,7 +71,7 @@ bedtools makewindows -g mm10.genome -w 100000 > mm10.100kb.bed
 	bedtools coverage -a mm10.100kb.bed -b my.bam > coverage_100kb.bed
 
 
-###      For genome
+###      To create the interval file
       Create interval file with PureCN with IntervalFile.R
 
 Rscript $(Rscript -e "cat(system.file('extdata', 'IntervalFile.R', package='PureCN'))")  --infile mm10_10kb_bins_clean.bed   --fasta mm10.fa   --outfile  mm10_10kb_bins_cleaned.txt
@@ -111,25 +111,26 @@ bedtools sort -i mm10_exons.bed | bedtools merge -i - > mm10_exons_merged.bed
 bedtools makewindows -b mm10_exons_merged.bed -w 100 > mm10_exon_bins_100bp.bed
 
 
-	Since I do NOT have the bam files, skip this
- bedtools coverage -a mm10_exon_bins_100bp.bed -b my.bam > exon_bin_coverage_100bp.txt
+Since I do NOT have the bam files, skip this
+bedtools coverage -a mm10_exon_bins_100bp.bed -b my.bam > exon_bin_coverage_100bp.txt
 
 
-      Create interval file with PureCN with IntervalFile.R
-	For exome
+Create interval file with PureCN with IntervalFile.R
+
+###	For exome
 
 Rscript $(Rscript -e "cat(system.file('extdata', 'IntervalFile.R', package='PureCN'))")  --infile mm10_exon_bins_100bp.bed   --fasta mm10.fa   --outfile mm10_exon_bins_100bp.txt
 
 It calculates the gc_bias also, but no mappability
-
+<pre>
 Target	gc_bias	mappability	reptiming	Gene	on_target
 chr1:3073253-3073613	0.279778393351801	NA	NA	.	TRUE
 chr1:3073614-3073975	0.378453038674033	NA	NA	.	TRUE
 chr1:3073976-3074337	0.364640883977901	NA	NA	.	TRUE
+</pre>
+Now, let's try to get exon with gene annotation
 
-	Now, let's try to get exon with gene annotation
-
- Extract exons with gene name
+Extract exons with gene name
 awk '$3 == "exon" {print $1"\t"$4-1"\t"$5"\t"$20}' Mus_musculus.GRCm38.102.gtf   | sed 's/"//g; s/;//g' > mm10_exons_with_gene.bed
 
 bedtools makewindows -b mm10_exons_with_gene.bed -w 100 -i src > mm10_exon_bins_100bp_gene.bed
@@ -144,22 +145,23 @@ bedtools sort -i mm10_exons_with_gene.bed   | bedtools groupby -g 4 -c 1,2,3 -o 
 Rscript $(Rscript -e "cat(system.file('extdata', 'IntervalFile.R', package='PureCN'))")  --infile mm10_exon_bins_100bp_gene.bed   --fasta mm10.fa   --outfile mm10_exon_bins_100bp_gene.txt
 
 
-	Unfortunately, I still miss gene information
+Unfortunately, I still miss gene information
 
 cat mm10_exon_bins_100bp_gene.txt | grep -v ^@ | head 
+<pre>
 Target	gc_bias	mappability	reptiming	Gene	on_target
 chr1:3073253-3073608	0.280898876404494	NA	NA	.	TRUE
 chr1:3073609-3073965	0.380952380952381	NA	NA	.	TRUE
 chr1:3073966-3074322	0.364145658263305	NA	NA	.	TRUE
 chr1:3102016-3102125	0.363636363636364	NA	NA	.	TRUE
 chr1:3205901-3206254	0.398305084745763	NA	NA	.	TRUE
-
+</pre>
 	Now, let' run it with transcriptome database
 	Still NOT working, will NOT spend time on this
 	Maybe until later
 	The following line of command fails
 
- Rscript $(Rscript -e "cat(system.file('extdata', 'IntervalFile.R', package='PureCN'))")  --infile mm10_exon_bins_100bp.bed   --fasta mm10.fa   --outfile mm10_exon_bins_100bp_withGeneSymbols.txt --txdb TxDb.Hsapiens.UCSC.hg19.knownGene
+Rscript $(Rscript -e "cat(system.file('extdata', 'IntervalFile.R', package='PureCN'))")  --infile mm10_exon_bins_100bp.bed   --fasta mm10.fa   --outfile mm10_exon_bins_100bp_withGeneSymbols.txt --txdb TxDb.Hsapiens.UCSC.hg19.knownGene
 
 
       Now, let's run PureCN
