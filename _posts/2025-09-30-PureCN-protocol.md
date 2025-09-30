@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PureCN for mouse WGS data"
+title: "PureCN protocol"
 date: 2025-09-30
 ---
 
