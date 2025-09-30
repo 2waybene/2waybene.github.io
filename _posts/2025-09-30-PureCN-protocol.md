@@ -36,15 +36,55 @@ I decide to use PureCN for this for the following benefit:
 cnvkit output, segmentation file:
 
 /Users/jyli/SciomeProjects/CCFstuff/AlphaPinene/cnvkitResults/FemaleLiverTumor/batchRun/
+<table>
+  <tr>
+    <th>Owner</th>
+    <th>Size</th>
+    <th>File Name</th>
+  </tr>
+  <tr>
+    <td>jyli</td>
+    <td>48315135</td>
+    <td>MD6818a_FemaleLiver_Tumor-diagram.pdf</td>
+  </tr>
+  <tr>
+    <td>jyli</td>
+    <td>75221</td>
+    <td>MD6818a_FemaleLiver_Tumor-scatter.png</td>
+  </tr>
+  <tr>
+    <td>jyli</td>
+    <td>31</td>
+    <td>MD6818a_FemaleLiver_Tumor.antitargetcoverage.cnn</td>
+  </tr>
+  <tr>
+    <td>jyli</td>
+    <td>4192233</td>
+    <td>MD6818a_FemaleLiver_Tumor.bintest.cns</td>
+  </tr>
+  <tr>
+    <td>jyli</td>
+    <td>4019</td>
+    <td>MD6818a_FemaleLiver_Tumor.call.cns</td>
+  </tr>
+  <tr>
+    <td>jyli</td>
+    <td>122013639</td>
+    <td>MD6818a_FemaleLiver_Tumor.cnr</td>
+  </tr>
+  <tr>
+    <td>jyli</td>
+    <td>11251</td>
+    <td>MD6818a_FemaleLiver_Tumor.cns</td>
+  </tr>
+  <tr>
+    <td>jyli</td>
+    <td>98136717</td>
+    <td>MD6818a_FemaleLiver_Tumor.targetcoverage.cnn</td>
+  </tr>
 
--rw-r--r--@  1 jyli  staff   48315135 Feb 20  2024 MD6818a_FemaleLiver_Tumor-diagram.pdf
--rw-r--r--@  1 jyli  staff      75221 Feb 20  2024 MD6818a_FemaleLiver_Tumor-scatter.png
--rw-r--r--   1 jyli  staff         31 Feb 20  2024 MD6818a_FemaleLiver_Tumor.antitargetcoverage.cnn
--rw-r--r--   1 jyli  staff    4192233 Feb 20  2024 MD6818a_FemaleLiver_Tumor.bintest.cns
--rw-r--r--   1 jyli  staff       4019 Feb 20  2024 MD6818a_FemaleLiver_Tumor.call.cns
--rw-r--r--   1 jyli  staff  122013639 Feb 20  2024 MD6818a_FemaleLiver_Tumor.cnr
--rw-r--r--   1 jyli  staff      11251 Feb 20  2024 MD6818a_FemaleLiver_Tumor.cns
--rw-r--r--   1 jyli  staff   98136717 Feb 20  2024 MD6818a_FemaleLiver_Tumor.targetcoverage.cnn
+</table>
+
 
 To get segmentation file that PureCN needs, I need to do the following two steps:
 
