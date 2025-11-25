@@ -1,6 +1,6 @@
 title: My GitHub Blog
 description: A simple blog powered by Jekyll and GitHub Pages
-theme: cayman
+theme: minima
 
 # Navigation
 header_pages:
